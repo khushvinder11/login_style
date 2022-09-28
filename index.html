@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(88, 88, 162);
+        display: grid;
+        place-items: center;
+      }
+
+      .container {
+        width: 360px;
+        background-color: rgb(238, 235, 235);
+        border-radius: 4px;
+      }
+
+      .container .header {
+        font-size: 27px;
+        padding: 15px 23px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 0.656);
+        border-bottom: 1px solid rgb(194, 192, 192);
+      }
+
+      form {
+        padding: 11px 23px;
+      }
+
+      form input {
+        margin: 19px 0px 4px 0px;
+        padding-bottom: 2px;
+        outline: none;
+        width: 90%;
+        border: none;
+        background-color: rgb(238, 235, 235);
+        border-bottom: 1px solid rgb(188, 186, 186);
+      }
+
+      input::placeholder {
+        letter-spacing: 1px;
+        color: gray;
+        font-size: 15px;
+      }
+
+      #icon {
+        display: none;
+      }
+
+      .error {
+        font-size: 11px;
+        color: rgb(227, 97, 97);
+      }
+
+      .hide {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .hide i {
+        position: absolute;
+        right: 32px;
+        color: rgba(169, 168, 168, 0.854);
+        cursor: pointer;
+      }
+
+      .btn {
+        width: 90%;
+        border: none;
+        background-color: rgb(90, 90, 221);
+        margin-top: 23px;
+        color: rgb(212, 209, 209);
+        font-size: 16px;
+        padding: 5px 0px;
+        border-radius: 3px;
+        cursor: pointer;
+        letter-spacing: 1px;
+        word-spacing: 3px;
+      }
+
+      .btn:hover {
+        background: rgb(49, 49, 221);
+      }
+
+      /* ..........link */
+      .link {
+        text-align: center;
+        color: rgb(71, 70, 70);
+        font-size: 14px;
+        margin: 7px 0 45px 0;
+      }
+
+      .link a {
+        font-size: 14px;
+        word-spacing: 1px;
+        margin-right: 4px;
+        text-decoration: none;
+      }
+
+      .link a:hover {
+        text-decoration: underline;
+      }
+      /* or........... */
+      .or {
+        width: 90%;
+        margin: 23px auto 35px auto;
+        font-size: 20px;
+        color: rgb(95, 94, 94);
+        position: relative;
+        height: 1px;
+        background-color: rgb(139, 138, 138);
+      }
+
+      .or::before {
+        content: "or";
+        position: absolute;
+        left: 50%;
+        top: 49%;
+        transform: translate(-50%, -53%);
+        background-color: white;
+      }
+
+      /* facebook......... */
+      .btn-face {
+        width: 60%;
+        display: block;
+        font-size: 16px;
+        color: rgb(212, 209, 209);
+        background-color: rgba(42, 42, 133, 0.843);
+        padding: 10px 0;
+        margin: 23px auto;
+        display: flex;
+        border: none;
+        border-radius: 3px;
+        justify-content: space-around;
+        align-items: baseline;
+        cursor: pointer;
+      }
+
+      .btn-face i {
+        border-radius: 50%;
+        color: rgb(203, 199, 199);
+        font-size: 20px;
+      }
+
+      .btn-face:hover {
+        background-color: rgba(42, 42, 133, 0.948);
+      }
+      /*  contet-link...*/
+      .contet-link {
+        width: 93%;
+        margin: 0px auto 19px auto;
+        color: rgb(80, 79, 79);
+        font-size: 14px;
+        word-spacing: 1px;
+      }
+
+      .contet-link a {
+        text-decoration: none;
+      }
+
+      .contet-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">Sign in</div>
+      <!-- ................................... -->
+      <form action="" onsubmit="return validateform()">
+        <input
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+        <p id="usererror" class="error"></p>
+        <div class="hide">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            maxlength="8"
+          />
+          <i id="icon" class="fa-solid fa-eye-slash"></i>
+        </div>
+        <p id="passworderror" class="error"></p>
+
+        <button class="btn">Sign in</button>
+      </form>
+      <!-- ........................................... -->
+      <div class="link">
+        <a href="">Forgot username</a>or <a href="">password</a>?
+      </div>
+      <!-- ...................................... -->
+      <div class="or"></div>
+      <!-- ....................................... -->
+      <button class="btn-face">
+        <i class="fa-brands fa-facebook-f"></i>
+        Sing In with Facebook
+      </button>
+      <!-- .................................... -->
+      <div class="contet-link">
+        <p>Don't have a Point Agent account? <a href=""> Create one now </a></p>
+      </div>
+    </div>
+
+    <script>
+      let username = document.getElementById("username");
+      let password = document.getElementById("password");
+
+      // return true; // form submit =true \ not submit = false
+      let flag = 1; // 1=true , 0=false
+      function validateform() {
+        if (username.value == "") {
+          document.getElementById("usererror").innerHTML = "User Name is empty";
+          flag = 0;
+        } else if (username.value.length < 3) {
+          document.getElementById("usererror").innerHTML =
+            "User Name requried min 3 char";
+          flag = 0;
+        } else {
+          document.getElementById("usererror").innerHTML = "";
+          flag = 1;
+        }
+        // ............password
+        if (password.value == "") {
+          document.getElementById("passworderror").innerHTML =
+            "Password is empty";
+          flag = 0;
+        } else {
+          document.getElementById("passworderror").innerHTML = "";
+          flag = 1;
+        }
+        // .............
+        if (flag) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      // ...............
+
+      let icon = document.getElementById("icon");
+      password.onkeydown = function () {
+        icon.style.display = "block";
+      };
+      icon.onclick = function () {
+        if (password.type == "password") {
+          password.type = "text";
+          icon.classList.add("fa-eye");
+          icon.classList.remove("fa-eye-slash");
+        } else {
+          password.type = "password";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        }
+      };
+    </script>
+  </body>
+</html>
